@@ -11,7 +11,7 @@ export default function HomeTopButtons() {
         href="./nftRewards"
         className="block w-64 py-3 bg-slate-50 text-2xl text-center"
       >
-        NFT REWARDS
+        AIRTIME REWARDS
       </a>
       <a
         href="./staking"

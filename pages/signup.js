@@ -6,7 +6,8 @@ import { UseContextProvider } from "../contexts/StepperContext";
 import CreateAccount from "../components/steps/CreateAccount";
 import AboutYourself from "../components/steps/AboutYourself";
 import Final from "../components/steps/Final";
-import ConnectWallet from "../components/steps/ConnectWallet";
+// import ConnectWallet from "../components/steps/ConnectWallet";
+import AddPhoneNumber from "../components/steps/AddPhoneNumber";
 import Navbar from "../components/Navbar";
 
 function App() {
@@ -26,7 +27,7 @@ function App() {
       case 2:
         return <AboutYourself />;
       case 3:
-        return <ConnectWallet handleClick={regEnd} />;
+        return <AddPhoneNumber handleClick={regEnd} />;
 
       default:
         <Final />;

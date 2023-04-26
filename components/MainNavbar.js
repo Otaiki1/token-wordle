@@ -3,7 +3,8 @@ import { useStateContext } from "../contexts/AuthContext";
 
 export default function MainNavbar() {
   const [showMenu, setShowMenu] = useState(false);
-  const {connectWallet, address} = useStateContext()
+  // const { connectWallet, address } = useStateContext();
+  const number = "08012345678";
   return (
     <nav className="bg-black w-full text-white md:px-32 px-3">
       <div className="flex justify-between items-center">
@@ -44,7 +45,9 @@ export default function MainNavbar() {
             Tokens
           </a>
           <button className="block px-8 border border-white ml-auto">
-          {address ? `${address.slice(0,5)}...${address.slice(30, 40)}` : "Connect Wallet"}
+            {number
+              ? `${number.slice(0, 5)}...${number.slice(9, 11)}`
+              : "Add Phone Number"}
           </button>
         </div>
       </div>
