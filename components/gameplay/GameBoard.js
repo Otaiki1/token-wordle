@@ -52,7 +52,7 @@ export default function GameBoard() {
   const handleSubmit = async () => {
     const userNumber = localStorage.getItem("userNumber");
     await sendAirtime(userNumber, 100);
-    // alert("Payment Successful");
+    alert("Payment Successful");
   };
 
   const sendAirtime = async (phoneNumber, amount) => {
