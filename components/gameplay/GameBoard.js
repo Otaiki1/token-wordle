@@ -49,6 +49,34 @@ export default function GameBoard() {
     }
   };
 
+  const handleSubmit = async () => {
+    const userNumber = localStorage.getItem("userNumber");
+    await sendAirtime(userNumber, 100);
+    alert("Payment Successful");
+  };
+
+  const sendAirtime = async (phoneNumber, amount) => {
+    try {
+      const response = await fetch("/api/sendAirtime", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ phoneNumber, amount }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        console.log("Airtime sent successfully:", data.response);
+      } else {
+        console.error("Error sending airtime inner:", data.error);
+      }
+    } catch (error) {
+      console.error("Error sending airtime outer:", error.message);
+    }
+  };
+
   return (
     <div className="h-full bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-20 border border-gray-100 md:w-[90%] w-full mx-auto mt-8 py-12 relative">
       {showModal && <InstructionModal clickHandler={displayModal} />}
@@ -78,7 +106,9 @@ export default function GameBoard() {
             <Keyboard clickHandler={getKeyboardInput} />
           </div>
           <div className="mt-5">
-            <button className="btn block mx-auto">Submit</button>
+            <button className="btn block mx-auto" onClick={handleSubmit}>
+              Submit
+            </button>
           </div>
         </>
       )}

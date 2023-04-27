@@ -1,10 +1,14 @@
-import { useState } from "react";
-import { useStateContext } from "../contexts/AuthContext";
+import { useEffect, useState } from "react";
+// import { useStateContext } from "../contexts/AuthContext";
 
 export default function MainNavbar() {
   const [showMenu, setShowMenu] = useState(false);
   // const { connectWallet, address } = useStateContext();
-  const number = "08012345678";
+  const [number, setNumber] = useState(null);
+  useEffect(() => {
+    // Perform localStorage action
+    setNumber(localStorage.getItem("userNumber"));
+  }, []);
   return (
     <nav className="bg-black w-full text-white md:px-32 px-3">
       <div className="flex justify-between items-center">

@@ -17,6 +17,10 @@ export default function AddPhoneNumber({ handleClick }) {
     setUserData({ ...userData, [name]: value });
   };
 
+  const storeNumber = () => {
+    localStorage.setItem("userNumber", userData["phonenumber"]);
+  };
+
   return (
     <div className="w-[70%] mx-auto mt-0">
       <h1 className="text-center font-medium text-5xl">
@@ -43,7 +47,10 @@ export default function AddPhoneNumber({ handleClick }) {
           />
         </div>
         <button
-          onClick={handleClick}
+          onClick={() => {
+            storeNumber();
+            handleClick();
+          }}
           className="block w-1/2 bg-black text-white text-2xl font-semibold py-3 rounded-lg mx-auto"
         >
           Add Phone Number
